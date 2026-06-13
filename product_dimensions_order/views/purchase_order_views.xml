@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_order_form_dimensions" model="ir.ui.view">
+        <field name="name">purchase.order.form.dimensions</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="before">
+                <field name="markaz_thickness" optional="show" readonly="0"/>
+                <field name="markaz_width" optional="show" readonly="0"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']//form//field[@name='product_id']" position="after">
+                <field name="markaz_thickness" readonly="0"/>
+                <field name="markaz_width" readonly="0"/>
+            </xpath>
+            <xpath expr="//field[@name='tax_totals']" position="before">
+                <field name="markaz_total_quantity" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
